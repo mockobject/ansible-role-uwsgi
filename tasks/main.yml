@@ -104,7 +104,7 @@
     dest: '{{uwsgi_vassal_path|mandatory}}/{{item.name|mandatory}}.ini'
     owner: '{% if uwsgi_emperor_tyrant %}{{item.uid|default(omit)}}{% else %}omit{% endif %}'
     group: '{% if uwsgi_emperor_tyrant %}{{item.gid|default(omit)}}{% else %}omit{% endif %}'
-  with_items: uwsgi_vassals
+  with_items: '{{uwsgi_vassals}}'
 
 - name: start the uwsgi service
   service:
